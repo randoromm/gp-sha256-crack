@@ -44,7 +44,7 @@ def bruteforce(charset, maxlength):
     return (''.join(candidate)
         for candidate in chain.from_iterable(product(charset, repeat=i)
         for i in range(1, maxlength + 1)))
-        
+
 bf_list = list(bruteforce(string.ascii_uppercase + string.digits, 4))
 print("Length of BF list: " + str(len(bf_list)))
 print("------")
@@ -63,8 +63,8 @@ bf_list_id = ray.put(bf_list)
 results = []
 for i in range(stop - start):
     results.append(computeSha.remote(start + i, stop, stop - start))
-    
-try:   
+
+try:
     # Wait for the tasks to complete and retrieve the results.
     # With at least 4 cores, this will take 1 second.
     if treasure_found == "False: ":
